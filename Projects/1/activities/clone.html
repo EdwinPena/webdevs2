@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Semester 1 Final</title>
+        <link href="FIX ME" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+      <h1>Chicago Building Violations for 2017-01-27</h1>
+      <div class="form">
+        Make selections to filter the results.<br>
+        <label for="inspection_status">Inspection Status</label>
+        <select id="inspection_status">
+          <option value="all">all</option>
+          <option value="HOLD">HOLD</option>
+          <option value="CLOSED">CLOSED</option>
+          <option value="PASSED">PASSED</option>
+          <option value="FAILED">FAILED</option>
+        </select><br>
+        
+        <label for="inspection_category">Inspection Category</label>
+        <select id="inspection_category">
+          <option value="all">all</option>
+          <option value="REGISTRATION">Registration</option>
+          <option value="PERIODIC">Periodic</option>
+          <option value="PERMIT">Permit</option>
+          <option value="COMPLAINT">Complaint</option>
+        </select><br>
+        
+        <button id="search">Find Inspections</button>
+      </div>
+      <div id="FIX ME"></div>
+
+      <FIX ME src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></FIX ME>
+      <script src="index.js"></script>
+    </body>
+</html>
