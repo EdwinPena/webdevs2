@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bus Tracker</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+          <div id = "X49Southbound"></div>
+          <div id = "49Southbound"></div>
+          <div id = "152Westbound"></div>
+          <div id = "152Eastbound"></div>
+ 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script>
+        $(function() {
+          
+          
+          var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+          
+          var apiEndpoint = "http://www.ctabustracker.com/bustime/api/v2/getpredictions";
+          
+          
+          
+          $.ajax({
+              url: apiPassThruUrl,
+              dataType: "json",
+              method: 'GET',
+              data: {"apiEndpoint": apiEndpoint,
+                      "key" : "MW6gVH4ZdEAr6qe6FDxBPPEhg",
+                      "format":"json",
+                      "stpid":"8195,8417,12569,12527",
+                      "top":""
+              }
+            }).done (function (data) {
+              console.log(data);
+              $("body").append("<h1>Bus routes</h1>");
+             
+              $.each(data["bustime-response"]["prd"], function(i,v) {
+                  $("#" + v.rt + v.rtdir ).append( "Route#" 
+                  + v.rt 
+                  +  ", " //Space and comma.
+                  + v.rtdir 
+                  + " " //Space
+                  +"<br>"
+                  + v.prdctdn 
+                  + " " 
+                  + "min" 
+                  +"<br>" 
+                  + "<hr>");
+                
+              })
+
+            });
+        });
+            
+  
+</script>
+ 
+</body>
+</html>
